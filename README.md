@@ -1,16 +1,18 @@
-# Obsidian Sample Plugin
+# Obsidian Tag Hierarchy Plugin
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This plugin for [Obsidian](https://obsidian.md) visualizes and helps you navigate through hierarchical tags in your vault.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+## Features
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+- Displays tags in a hierarchical tree structure
+- Shows the count of notes for each tag
+- Allows filtering tags by minimum usage count
+- Clicking on a tag searches for notes with that tag
+- Expandable/collapsible tag hierarchy levels
+- Option to automatically display in the right sidebar
+- Generates a markdown file with the tag hierarchy
+- Automatically updates the markdown file on startup
+- Command to manually update the markdown file
 
 ## First time developing plugins?
 
@@ -46,17 +48,65 @@ Quick starting guide for new plugin devs:
 
 ## How to use
 
-- Clone this repo.
-- Make sure your NodeJS is at least v16 (`node --version`).
-- `npm i` or `yarn` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+### Installation
+
+- Download the latest release from the GitHub releases page
+- Extract the zip file to your vault's plugins folder: `VaultFolder/.obsidian/plugins/obsidian-tag-hierarchy/`
+- Enable the plugin in Obsidian's Community Plugins settings
+
+### Using the Plugin
+
+- Click the hashtag icon in the left ribbon to open the Tag Hierarchy view
+- The view displays all tags in your vault in a hierarchical tree structure
+- Click on a tag to search for notes with that tag
+- Use the expand/collapse buttons to navigate through the hierarchy
+
+### Available Commands
+
+The plugin adds the following commands to the Obsidian command palette:
+
+1. **Tag Hierarchy: Open Tag Hierarchy View**
+   - Opens the tag hierarchy view in the right sidebar
+   - Shows the hierarchical structure of all tags in your vault
+
+2. **Tag Hierarchy: Refresh Tag Hierarchy**
+   - Refreshes the tag hierarchy view with the latest tags from your vault
+   - Useful after adding or modifying tags in your notes
+
+3. **Tag Hierarchy: Generate Tag Hierarchy Markdown File**
+   - Creates or updates the "Vault Tag Hierarchy.md" file at the root of your vault
+   - The file contains a hierarchical listing of all tags with their counts
+   - This command can be used at any time to manually update the markdown file
+
+### Markdown File Generation
+
+The plugin can generate a markdown file with your tag hierarchy:
+
+- By default, a file named "Vault Tag Hierarchy.md" is created at the root of your vault
+- The file is automatically updated when Obsidian starts (if enabled in settings)
+- You can manually update the file using the "Generate Tag Hierarchy Markdown File" command
+- The file shows all tags in a hierarchical structure with their counts
+- You can customize the file path and other settings in the plugin settings
+
+### Plugin Settings
+
+- **View Settings**
+  - Display in right sidebar: Automatically show the tag hierarchy in the right sidebar on startup
+  - Expand all by default: Show all tag hierarchies expanded
+  - Show tag count: Display the number of notes for each tag
+  - Minimum tag count: Only show tags that appear in at least this many notes
+
+- **Markdown File Settings**
+  - Generate markdown file: Enable/disable the markdown file generation
+  - Markdown file path: Set the path for the markdown file (relative to vault root)
+  - Update on startup: Automatically update the markdown file when Obsidian starts
 
 ## Manually installing the plugin
 
 - Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
 
 ## Improve code quality with eslint (optional)
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code. 
+- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code.
 - To use eslint with this project, make sure to install eslint from terminal:
   - `npm install -g eslint`
 - To use eslint to analyze this project use this command:

@@ -1,8 +1,60 @@
-/*
+/* Tag Hierarchy Plugin Styles */
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+.tag-hierarchy-tree {
+  padding: 8px 0;
+}
 
-If your plugin does not need CSS, delete this file.
+.tag-hierarchy-tree ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
 
-*/
+.tag-hierarchy-tree li {
+  margin: 2px 0;
+}
+
+.tag-hierarchy-tree ul ul {
+  padding-left: 20px;
+  display: none;
+}
+
+.tag-hierarchy-tree ul.expanded {
+  display: block;
+}
+
+.tag-hierarchy-item {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tag-hierarchy-item:hover {
+  background-color: var(--background-secondary);
+}
+
+.tag-hierarchy-toggle {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  margin-right: 4px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.tag-hierarchy-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tag-hierarchy-count {
+  margin-left: 8px;
+  opacity: 0.6;
+  font-size: 0.85em;
+}
